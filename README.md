@@ -1,1 +1,0 @@
-# Bekzod-va-Hamida

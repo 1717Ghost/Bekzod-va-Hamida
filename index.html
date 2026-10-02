@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bekzod & Hamida 🖤</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    color: #eee;
+    font-family: "Cormorant Garamond", serif;
+
+    background:
+        radial-gradient(circle at 50% 20%, #35101b 0%, transparent 35%),
+        radial-gradient(circle at 10% 90%, #260812 0%, transparent 30%),
+        linear-gradient(145deg, #020202, #100509, #030303);
+
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .08;
+
+    background-image:
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 3px,
+            #fff 4px
+        );
+
+    z-index: 1;
+}
+
+.moon {
+    position: fixed;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: #ddd;
+
+    top: 7%;
+    right: 7%;
+
+    opacity: .07;
+    box-shadow: 0 0 70px #fff;
+
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 35px 15px;
+}
+
+.card {
+    width: min(650px, 95%);
+
+    text-align: center;
+
+    padding: 55px 30px;
+
+    position: relative;
+
+    background: rgba(0,0,0,.68);
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    box-shadow:
+        0 0 40px rgba(100,0,30,.4),
+        inset 0 0 50px rgba(120,0,30,.08);
+
+    backdrop-filter: blur(12px);
+
+    animation: appear 1.5s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card::before,
+.card::after {
+    position: absolute;
+    font-size: 28px;
+    color: #8d1838;
+}
+
+.card::before {
+    content: "🥀";
+    top: 15px;
+    left: 18px;
+}
+
+.card::after {
+    content: "🥀";
+    bottom: 15px;
+    right: 18px;
+    transform: rotate(180deg);
+}
+
+.invited {
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    color: #999;
+    font-size: 13px;
+    margin-bottom: 28px;
+}
+
+.names {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(65px, 17vw, 115px);
+    line-height: 1;
+    color: #f5f5f5;
+    font-weight: 400;
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 8px rgba(255,255,255,.25),
+        0 0 25px rgba(130,0,40,.65);
+}
+
+.and {
+    margin: 10px 0;
+    color: #9d2343;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 38px;
+    font-weight: 500;
+}
+
+.line {
+    width: 150px;
+    height: 1px;
+    margin: 35px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #9d2343,
+            transparent
+        );
+}
+
+.date {
+    font-size: 34px;
+    letter-spacing: 6px;
+    font-weight: 600;
+}
+
+.time {
+    margin-top: 8px;
+    font-size: 25px;
+    color: #aaa;
+}
+
+.place {
+    margin-top: 35px;
+    font-size: 25px;
+}
+
+.place small {
+    display: block;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #888;
+    margin-bottom: 7px;
+}
+
+
+/* ОБРАТНЫЙ ОТСЧЁТ */
+
+.countdown-title {
+    margin-top: 45px;
+
+    color: #888;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+}
+
+.countdown {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.time-box {
+    min-width: 75px;
+
+    padding: 13px 8px;
+
+    background: rgba(100,0,30,.13);
+
+    border: 1px solid rgba(157,35,67,.35);
+
+    box-shadow:
+        inset 0 0 15px rgba(120,0,30,.1);
+}
+
+.time-number {
+    display: block;
+
+    font-size: 30px;
+
+    color: #f5f5f5;
+
+    font-weight: 600;
+}
+
+.time-label {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 11px;
+
+    color: #777;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+
+/* Текст */
+
+.message {
+    margin-top: 35px;
+
+    color: #aaa;
+
+    font-size: 19px;
+
+    line-height: 1.5;
+}
+
+
+/* Кнопка */
+
+button {
+    margin-top: 35px;
+
+    padding: 14px 32px;
+
+    color: white;
+
+    background: transparent;
+
+    border: 1px solid #8d1838;
+
+    font-family: inherit;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: .35s;
+}
+
+button:hover {
+    background: #8d1838;
+
+    box-shadow:
+        0 0 30px rgba(150,0,50,.6);
+
+    transform: scale(1.04);
+}
+
+
+/* Частицы */
+
+.particle {
+    position: fixed;
+
+    top: -20px;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    opacity: .6;
+
+    pointer-events: none;
+
+    animation: snow linear infinite;
+
+    z-index: 3;
+}
+
+@keyframes snow {
+    to {
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+    }
+}
+
+
+/* Сердечки */
+
+.heart {
+    position: fixed;
+
+    color: #8d1838;
+
+    font-size: 16px;
+
+    pointer-events: none;
+
+    animation:
+        floatUp 5s linear forwards;
+
+    z-index: 4;
+}
+
+@keyframes floatUp {
+
+    from {
+        transform:
+            translateY(0)
+            scale(.5);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .8;
+    }
+
+    to {
+        transform:
+            translateY(-100vh)
+            scale(1.4)
+            rotate(25deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* Телефон */
+
+@media(max-width:500px) {
+
+    .card {
+        padding: 45px 15px;
+    }
+
+    .names {
+        font-size: 72px;
+    }
+
+    .date {
+        font-size: 27px;
+    }
+
+    .place {
+        font-size: 22px;
+    }
+
+    .countdown {
+        gap: 5px;
+    }
+
+    .time-box {
+        min-width: 62px;
+        padding: 10px 5px;
+    }
+
+    .time-number {
+        font-size: 24px;
+    }
+
+    .time-label {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="moon"></div>
+
+<div class="container">
+
+<div class="card">
+
+    <div class="invited">
+        Sizni to‘yimizga taklif qilamiz
+    </div>
+
+    <div class="names">
+        Bekzod
+    </div>
+
+    <div class="and">
+        &
+    </div>
+
+    <div class="names">
+        Hamida
+    </div>
+
+    <div class="line"></div>
+
+    <div class="date">
+        03.10.26
+    </div>
+
+    <div class="time">
+        19:00
+    </div>
+
+    <div class="place">
+
+        <small>
+            To‘y manzili
+        </small>
+
+        «Poplavok» to‘yxonasi
+
+    </div>
+
+
+    <!-- OBRATNYI OTSCHYOT -->
+
+    <div class="countdown-title">
+        To‘yimizgacha qoldi
+    </div>
+
+    <div class="countdown">
+
+        <div class="time-box">
+            <span class="time-number" id="days">
+                00
+            </span>
+
+            <span class="time-label">
+                Kun
+            </span>
+        </div>
+
+        <div class="time-box">
+            <span class="time-number" id="hours">
+                00
+            </span>
+
+            <span class="time-label">
+                Soat
+            </span>
+        </div>
+
+        <div class="time-box">
+            <span class="time-number" id="minutes">
+                00
+            </span>
+
+            <span class="time-label">
+                Daqiqa
+            </span>
+        </div>
+
+        <div class="time-box">
+            <span class="time-number" id="seconds">
+                00
+            </span>
+
+            <span class="time-label">
+                Soniyа
+            </span>
+        </div>
+
+    </div>
+
+
+    <div class="message">
+
+        Sizni hayotimizdagi eng muhim
+        kunlardan birini biz bilan birga
+        nishonlashga taklif qilamiz. 🖤
+
+        <br><br>
+
+        Sizning tashrifingiz biz uchun
+        eng katta sovg‘adir.
+
+    </div>
+
+
+    <button onclick="confirmGuest()">
+        Men albatta boraman 🖤
+    </button>
+
+
+    <div class="line"></div>
+
+
+    <div style="
+        color:#555;
+        letter-spacing:3px;
+    ">
+        03 • 10 • 2026
+    </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   OBRATNYI OTSCHYOT
+   ========================= */
+
+const weddingDate =
+    new Date("2026-10-03T19:00:00").getTime();
+
+
+function updateCountdown() {
+
+    const now =
+        new Date().getTime();
+
+    const distance =
+        weddingDate - now;
+
+
+    if (distance <= 0) {
+
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+
+        document.querySelector(".countdown-title")
+            .textContent = "Bugun to‘yimiz! 🖤";
+
+        return;
+    }
+
+
+    const days =
+        Math.floor(
+            distance / (1000 * 60 * 60 * 24)
+        );
+
+    const hours =
+        Math.floor(
+            (distance / (1000 * 60 * 60)) % 24
+        );
+
+    const minutes =
+        Math.floor(
+            (distance / (1000 * 60)) % 60
+        );
+
+    const seconds =
+        Math.floor(
+            (distance / 1000) % 60
+        );
+
+
+    document.getElementById("days")
+        .textContent =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours")
+        .textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes")
+        .textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds")
+        .textContent =
+        String(seconds).padStart(2, "0");
+}
+
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+/* =========================
+   ПАДАЮЩИЕ ЧАСТИЦЫ
+   ========================= */
+
+for (let i = 0; i < 35; i++) {
+
+    const p =
+        document.createElement("div");
+
+    p.className = "particle";
+
+    p.style.left =
+        Math.random() * 100 + "%";
+
+    p.style.animationDuration =
+        (5 + Math.random() * 9) + "s";
+
+    p.style.animationDelay =
+        Math.random() * 8 + "s";
+
+    p.style.opacity =
+        .2 + Math.random() * .6;
+
+    document.body.appendChild(p);
+}
+
+
+/* =========================
+   КНОПКА
+   ========================= */
+
+function confirmGuest() {
+
+    alert(
+        "Bekzod va Hamida sizni 3-oktabr soat 19:00 da kutishadi 🖤"
+    );
+
+}
+
+
+/* =========================
+   УЛЕТАЮЩИЕ СЕРДЕЧКИ
+   ========================= */
+
+setInterval(() => {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML =
+        Math.random() > .5
+        ? "♥"
+        : "🥀";
+
+    heart.style.left =
+        Math.random() * 100 + "%";
+
+    heart.style.bottom =
+        "-20px";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 15) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+
+}, 1200);
+
+</script>
+
+</body>
+  </html>
